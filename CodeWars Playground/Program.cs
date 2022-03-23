@@ -2,13 +2,15 @@
 using CodeWars_Playground.Kata;
 
 // Alphabet Positions
-string text = "The sunset sets at twelve o' clock.";
+//string text = "The sunset sets at twelve o' clock.";
 
-AlphabetPositionKata.PrintAlaphabetPositions(text);
+//AlphabetPositionKata.PrintAlaphabetPositions(text);
 
 // You're a square!
-for (int i = -1; i < 26; i++)
-{
-    Console.WriteLine($"Is {i} a perfect square? {SquareRoot.IsSquare(i)}");
-}
+//for (int i = -1; i < 26; i++)
+//{
+//    Console.WriteLine($"Is {i} a perfect square? {SquareRoot.IsSquare(i)}");
+//}
 
+// DNA
+Console.WriteLine(DNA.MakeComplement("ATTGC"));
