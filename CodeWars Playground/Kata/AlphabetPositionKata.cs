@@ -1,5 +1,4 @@
-﻿
-namespace CodeWars_Playground
+﻿namespace CodeWars_Playground.Kata
 {
     public static class AlphabetPositionKata
     {
@@ -11,7 +10,7 @@ namespace CodeWars_Playground
             foreach (char c in text.ToLower())
             {
                 if (!alphabet.Contains(c)) continue;
-                alphabetPositions += (alphabet.IndexOf(c) + 1) + " ";
+                alphabetPositions += alphabet.IndexOf(c) + 1 + " ";
             }
 
             alphabetPositions = alphabetPositions.Trim();

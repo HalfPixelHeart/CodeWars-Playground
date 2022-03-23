@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using CodeWars_Playground;
+using CodeWars_Playground.Kata;
 
 // Alphabet Positions
 string text = "The sunset sets at twelve o' clock.";
