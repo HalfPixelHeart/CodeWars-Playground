@@ -21,5 +21,13 @@ using System.Text;
 // Console.WriteLine(TwoToOne.Longest("isadufbaslkdfjb", "sdfuiohssgrez"));
 
 // Pangram
-Pangram.IsPangram("This is not a pangram23423");
-Pangram.IsPangram("The quick brown fox jumps over the lazy dog!234");
+//Pangram.IsPangram("This is not a pangram23423");
+//Pangram.IsPangram("The quick brown fox jumps over the lazy dog!234");
+
+// The Bus
+//List<int[]> peopleList = new List<int[]>() { new[] { 10, 0 }, new[] { 3, 5 }, new[] { 5, 8 } };
+//Console.WriteLine(Bus.Number(peopleList));
+
+// Print Errors
+string s = "aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
+Console.WriteLine(Printer.StringError(s));
