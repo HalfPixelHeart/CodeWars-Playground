@@ -24,5 +24,11 @@ namespace CodeWars_Playground.Kata
 
             return peopleIn - peopleOut;
         }
+
+        public static void Test()
+        {
+            List<int[]> peopleList = new List<int[]>() { new[] { 10, 0 }, new[] { 3, 5 }, new[] { 5, 8 } };
+            Console.WriteLine(Number(peopleList));
+        }
     }
 }

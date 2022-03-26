@@ -31,5 +31,11 @@ namespace CodeWars_Playground.Kata
 
             return $"{errors}/{length}";
         }
+
+        public static void Test()
+        {
+            string s = "aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
+            Console.WriteLine(StringError(s));
+        }
     }
 }

@@ -36,6 +36,11 @@ namespace CodeWars_Playground.Kata
 
             return sb.ToString();
         }
+
+        public static void Test()
+        {
+            Console.WriteLine(MakeComplement("ATTGC"));
+        }
     }
 }
 

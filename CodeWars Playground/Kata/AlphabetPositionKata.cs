@@ -21,5 +21,11 @@ namespace CodeWars_Playground.Kata
 
             Console.WriteLine(alphabetPositions);
         }
+
+        public static void Test()
+        {
+            string text = "The sunset sets at twelve o' clock.";
+            PrintAlaphabetPositions(text);
+        }
     }
 }

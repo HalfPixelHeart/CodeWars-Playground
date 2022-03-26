@@ -16,5 +16,11 @@ namespace CodeWars_Playground.Kata
 
             return alphabetHash.Count == 26;
         }
+
+        public static void Test()
+        {
+            IsPangram("This is not a pangram23423");
+            IsPangram("The quick brown fox jumps over the lazy dog!234");
+        }
     }
 }

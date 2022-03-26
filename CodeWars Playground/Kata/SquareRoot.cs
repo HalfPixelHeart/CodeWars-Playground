@@ -7,5 +7,13 @@ namespace CodeWars_Playground.Kata
     public static class SquareRoot
     {
         public static bool IsSquare(int n) => MathF.Sqrt(n) % 1 == 0;
+
+        public static void Test()
+        {
+            for (int i = -1; i < 26; i++)
+            {
+                Console.WriteLine($"Is {i} a perfect square? {IsSquare(i)}");
+            }
+        }
     }
 }

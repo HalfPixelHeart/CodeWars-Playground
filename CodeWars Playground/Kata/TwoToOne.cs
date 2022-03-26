@@ -13,5 +13,10 @@ namespace CodeWars_Playground.Kata
 
             return result;
         }
+
+        public static void Test()
+        {
+            Console.WriteLine(Longest("isadufbaslkdfjb", "sdfuiohssgrez"));
+        }
     }
 }
