@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.Linq;
 
 /*
 Complete the solution so that it splits the string into pairs of two characters.
@@ -24,6 +25,17 @@ namespace CodeWars_Playground.Kata
                 ).ToArray();
 
             return result;
+        }
+
+        public static string[] AlternateSolution(string str)
+        {
+            return Regex.Matches(str + "_", @"w{2}").Select(x => x.Value).ToArray();
+        }
+
+        public static void Test()
+        {
+            Console.WriteLine($"Result of passing abcde: {Solution("abcde")}");
+            Console.WriteLine($"Result of passing abcdef: {Solution("abcdef")}");
         }
     }
 }
