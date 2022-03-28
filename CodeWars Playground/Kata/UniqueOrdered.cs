@@ -15,15 +15,21 @@ namespace CodeWars_Playground.Kata
     {
         public static IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable)
         {
-            var source = iterable.ToList();
-            var result = new List<T>();
+            var result = new Stack<T>();
+            T lastAdded;
 
-            result.Add(source[0]);
-            
-            for (int i = 1; i < source.Count; i++)
-                if(!source[i].Equals(source[i-1])) result.Add(source[i]);
+            foreach(var item in iterable)
+            {
+                if (!result.TryPeek(out lastAdded))
+                {
+                    result.Push(item);
+                    continue;
+                }
 
-            return result;
+                if (!item.Equals(lastAdded)) result.Push(item);
+            }
+
+            return result.Reverse();
         }
 
         public static void Test()
