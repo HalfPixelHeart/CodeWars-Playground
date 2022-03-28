@@ -1,5 +1,8 @@
 ﻿
-/*Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+/* Implement the function unique_in_order which takes as argument a sequence
+ * and returns a list of items without any elements with the same value next to each other
+ * and preserving the original order of elements.
+ * 
  * For example:
  * uniqueInOrder("AAAABBBCCDAABBB") == {'A', 'B', 'C', 'D', 'A', 'B'}
  * uniqueInOrder("ABBCcAD")         == {'A', 'B', 'C', 'c', 'A', 'D'}
@@ -12,7 +15,25 @@ namespace CodeWars_Playground.Kata
     {
         public static IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable)
         {
-            return null;
+            var source = iterable.ToList();
+            var result = new List<T>();
+
+            result.Add(source[0]);
+            
+            for (int i = 1; i < source.Count; i++)
+                if(!source[i].Equals(source[i-1])) result.Add(source[i]);
+
+            return result;
+        }
+
+        public static void Test()
+        {
+            Console.WriteLine("Testing: AAAABBBCCDAABBB");
+
+            foreach(var item in UniqueInOrder("AAAABBBCCDAABBB"))
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -2,5 +2,4 @@
 using CodeWars_Playground.Kata;
 using CodeWars_Playground;
 
-var test = "AAAABBBCCDAABBB";
-
+UniqueOrdered.Test();
