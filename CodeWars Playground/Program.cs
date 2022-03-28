@@ -2,4 +2,3 @@
 using CodeWars_Playground.Kata;
 using CodeWars_Playground;
 
-UniqueOrdered.Test();
