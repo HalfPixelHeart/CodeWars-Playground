@@ -2,4 +2,5 @@
 using CodeWars_Playground.Kata;
 using CodeWars_Playground;
 
-Braces.Test();
+var test = "AAAABBBCCDAABBB";
+
