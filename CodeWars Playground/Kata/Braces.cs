@@ -4,40 +4,42 @@ namespace CodeWars_Playground.Kata
 {
     public static class Braces
     {
-        static Dictionary<char, char> bracePairs = new Dictionary<char, char>()
+        static Dictionary<char, char> pairs = new Dictionary<char, char>()
         {
             {'(' , ')' },
             {'[' , ']' },
             {'{' , '}' }
         };
 
-        public static bool ValidBraces(string braces)
+        public static bool validBraces(string braces)
         {
-            var braceStack = new Stack<char>();
+            var stack = new Stack<char>();
 
             foreach (char c in braces)
             {
-                if (bracePairs.ContainsKey(c)) braceStack.Push(c);
+                if (pairs.ContainsKey(c))
+                    stack.Push(c);
 
-                if (bracePairs.ContainsValue(c))
+                if (pairs.ContainsValue(c))
                 {
-                    if (braceStack.Count == 0) return false;
-                    if (c == bracePairs[braceStack.Peek()]) braceStack.Pop();
-                    else return false;
+                    if (stack.Count == 0) return false;
+                    if (c != pairs[stack.Peek()]) return false;
+
+                    stack.Pop();
                 }
             }
 
-            return braceStack.Count == 0;
+            return stack.Count == 0;
         }
 
         public static void Test()
         {
-            Console.WriteLine($"() = {ValidBraces("()")}");
-            Console.WriteLine($"(){{}}[] = {ValidBraces("(){}[]")}");
-            Console.WriteLine($"([{{}}]) = {ValidBraces("([{}])")}");
-            Console.WriteLine($"(}} = {ValidBraces("(}")}");
-            Console.WriteLine($"[(]) = {ValidBraces("[(])")}");
-            Console.WriteLine($"[({{}})](] = {ValidBraces("[({})](]")}");
+            Console.WriteLine($"() = {validBraces("()")}");
+            Console.WriteLine($"(){{}}[] = {validBraces("(){}[]")}");
+            Console.WriteLine($"([{{}}]) = {validBraces("([{}])")}");
+            Console.WriteLine($"(}} = {validBraces("(}")}");
+            Console.WriteLine($"[(]) = {validBraces("[(])")}");
+            Console.WriteLine($"[({{}})](] = {validBraces("[({})](]")}");
         }
     }
 }
