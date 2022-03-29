@@ -40,18 +40,18 @@ namespace CodeWars_Playground.Kata
 {
     public static class ObservedPIN
     {
-        private static Dictionary<string, List<string>> keyVariations = new Dictionary<string, List<string>>()
+        private static Dictionary<char, string> keyVariations = new Dictionary<char, string>()
         {
-            {"1", new List<string> { "1","2","4"} },
-            {"2", new List<string> { "1","2","3","5"} },
-            {"3", new List<string> { "2","3","6"} },
-            {"4", new List<string> { "1","4","5","7"} },
-            {"5", new List<string> { "2","4","5","6","8"} },
-            {"6", new List<string> { "3","5","6","9"} },
-            {"7", new List<string> { "4","7","8"} },
-            {"8", new List<string> { "5","7","8","9","0"} },
-            {"9", new List<string> { "6","8","9"} },
-            {"0", new List<string> { "8","0"} }
+            {'1', "124" },
+            {'2', "1235" },
+            {'3', "236" },
+            {'4', "1457" },
+            {'5', "24568" },
+            {'6', "3569" },
+            {'7', "478" },
+            {'8', "57890" },
+            {'9', "689" },
+            {'0', "80" }
         };
         public static List<string> GetPINs(string observed)
         {
@@ -59,19 +59,12 @@ namespace CodeWars_Playground.Kata
 
             foreach (var key in observed)
             {
-                pins = CrossJoin(pins, keyVariations[key.ToString()]);
+                pins = (from x in pins
+                        from y in keyVariations[key]
+                        select x + y).ToList();
             }
 
             return pins;
-        }
-
-        public static List<string> CrossJoin(List<string> left, List<string> right)
-        {
-            var join = from x in left
-                       from y in right
-                       select x + y;
-
-            return join.ToList();
         }
     }
 }
