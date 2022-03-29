@@ -1,4 +1,5 @@
-﻿
+﻿using System.Diagnostics;
+
 /*
 Alright, detective, one of our colleagues successfully observed our target person, Robby the robber.
 We followed him to a secret warehouse, where we assume to find all the stolen stuff.
@@ -35,7 +36,6 @@ because of potentially leading '0's. We already prepared some test cases for you
 Detective, we are counting on you!
 */
 
-
 namespace CodeWars_Playground.Kata
 {
     public static class ObservedPIN
@@ -55,6 +55,9 @@ namespace CodeWars_Playground.Kata
         };
         public static List<string> GetPINs(string observed)
         {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             var pins = new List<string>() { "" };
 
             foreach (var key in observed)
@@ -63,6 +66,11 @@ namespace CodeWars_Playground.Kata
                         from y in keyVariations[key]
                         select x + y).ToList();
             }
+
+            stopwatch.Stop();
+            stopwatch.DisplayElapsed();
+
+            Console.WriteLine($"Alternate PINs identified: {pins.Count}");
 
             return pins;
         }
