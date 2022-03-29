@@ -2,3 +2,4 @@
 using CodeWars_Playground.Kata;
 using CodeWars_Playground;
 
+HelperFunctions.PrintList(ObservedPIN.GetPINs("11"));
