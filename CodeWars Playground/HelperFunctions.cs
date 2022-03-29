@@ -18,7 +18,7 @@ namespace CodeWars_Playground
             string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                 ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
 
-            Console.WriteLine("RunTime: " + elapsedTime);
+            Console.WriteLine("Elapsed Time: " + elapsedTime);
         }
     }
 }

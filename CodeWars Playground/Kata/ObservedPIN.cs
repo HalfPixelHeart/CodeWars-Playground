@@ -74,5 +74,14 @@ namespace CodeWars_Playground.Kata
 
             return pins;
         }
+
+        public static void Test()
+        {
+            string observed = "84585285";
+            Console.WriteLine("ALTERNATE PINS");
+            Console.WriteLine($"PIN observed: {observed}");
+
+            ObservedPIN.GetPINs(observed);
+        }
     }
 }
