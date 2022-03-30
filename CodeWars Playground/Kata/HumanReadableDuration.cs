@@ -10,7 +10,7 @@ namespace CodeWars_Playground.Kata
         {
             if (seconds == 0) return "now";
 
-            var periods =  new Stack<string>();
+            var periods = new Stack<string>();
             var delimiters = new Stack<string>(new string[] { ", ", ", ", ", ", " and ", ""});
             var output = "";
 
