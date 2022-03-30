@@ -1,42 +1,40 @@
-﻿
+﻿using System.Collections.Generic;
 
 namespace CodeWars_Playground.Kata
 {
-    public class HumanReadableDuration
+    public enum Period { year = 31536000, day = 86400, hour = 3600, minute = 60, second = 1 }
+    public static class HumanReadableDuration
     {
         public static string formatDuration(int seconds)
         {
             if (seconds == 0) return "now";
 
-            var periods =  new Stack<TimePeriod>();
+            var periods =  new Stack<string>();
             var delimiters = new Stack<string>(new string[] { ", ", ", ", ", ", " and ", ""});
             var output = "";
 
-            if (seconds >= 31536000) periods.Push(new TimePeriod("year", 31536000, ref seconds));
-            if (seconds >= 86400) periods.Push(new TimePeriod("day", 86400, ref seconds));
-            if (seconds >= 3600) periods.Push(new TimePeriod("hour", 3600, ref seconds));
-            if (seconds >= 60) periods.Push(new TimePeriod("minute", 60, ref seconds));
-            if (seconds >= 1) periods.Push(new TimePeriod("second", 1, ref seconds));
+            periods.TryPush(Period.year.FormatPeriod(ref seconds));
+            periods.TryPush(Period.day.FormatPeriod(ref seconds));
+            periods.TryPush(Period.hour.FormatPeriod(ref seconds));
+            periods.TryPush(Period.minute.FormatPeriod(ref seconds));
+            periods.TryPush(Period.second.FormatPeriod(ref seconds));
 
-            while(periods.Count > 0) output = periods.Pop().formatted + delimiters.Pop() + output;
+            while (periods.Count > 0) output = periods.Pop() + delimiters.Pop() + output;
 
             return output;
         }
 
-        public struct TimePeriod
+        private static string FormatPeriod(this Period period, ref int seconds)
         {
-            public string name;
-            public int secondsInPeriod;
-            public int count;
-            public string formatted => count == 0 ? "" : count == 1 ? $"1 {name}" : $"{count} {name}s";
+            var count = seconds / (int)period;
+            seconds %= (int)period;
 
-            public TimePeriod(string name, int secondsInPeriod, ref int seconds)
-            {
-                this.name = name;
-                this.secondsInPeriod = secondsInPeriod;
-                count = seconds / secondsInPeriod;
-                seconds %= secondsInPeriod;
-            }
+            return count == 0 ? "" : $"{count} {period}" + (count > 1 ? "s" : "");
+        }
+
+        private static void TryPush(this Stack<string> stack, string period)
+        {
+            if (period != "") stack.Push(period);
         }
     }
 }
