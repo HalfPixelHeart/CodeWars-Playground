@@ -3,6 +3,7 @@
 namespace CodeWars_Playground.Kata
 {
     public enum Period { year = 31536000, day = 86400, hour = 3600, minute = 60, second = 1 }
+
     public static class HumanReadableDuration
     {
         public static string formatDuration(int seconds)
